@@ -28,3 +28,7 @@ JSON.put '/nested/ele/ment' 23 tree1
 is "$(JSON.get '/nested/ele/ment' tree1)" \
     '23' \
     "JSON.get /nested/ele/ment"
+
+JSON.put -n '/test/num' 23 tree1
+
+echo "$tree1"

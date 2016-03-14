@@ -117,6 +117,7 @@ JSON.put() {
       printf "$1\t$2\n"
       ;;
     3)
+      echo "$2" | JSON.apply-get-flag "$flag"
       if [[ $1 == '-' ]]; then
         echo "$JSON__cache" | JSON.del "$1"
         printf "$1\t$2\n"
