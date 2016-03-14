@@ -121,8 +121,10 @@ JSON.put() {
         echo "$JSON__cache" | JSON.del "$1"
         printf "$1\t$2\n"
       else
-        echo ${!3} | JSON.del "$1"
-        printf "$1\t$2\n"
+        printf -v "$3" "$(
+            echo "${!3}" | JSON.del "$1"
+            printf "$1\t$2\n"
+        )"
       fi
       ;;
     *) JSON.die 'Usage: JSON.put [-s|-n|-b|-z] <key-path> <new-value> [<tree-var>]' ;;
